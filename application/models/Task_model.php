@@ -42,7 +42,7 @@
     public function get_task_project_id($task_id) {
       $this->db->where('id', $task_id);
       $query = $this->db->get('tasks');
-      return $query->row()->id;
+      return $query->row()->project_id;
     }
 
 
@@ -57,6 +57,14 @@
       $this->db->where('id', $task_id);
       $query = $this->db->get('tasks');
       return $query->row();
+    }
+
+
+
+    public function edit_task($task_id, $data) {
+      $this->db->where('id', $task_id);
+      $this->db->update('tasks', $data);
+      return true;
     }
 
 

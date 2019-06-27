@@ -18,6 +18,9 @@ class Tasks extends CI_Controller
   }
 
 
+  
+
+
 
   public function create_task($project_id) {
     // print_r($project_id);
@@ -68,8 +71,8 @@ class Tasks extends CI_Controller
         'task_body'    => $this->input->post('task_body'),
         'due_date'     => $this->input->post('due_date')
       );
-      if ($this->task_model->create_task($data)) {
-        $this->session->set_flashdata('task_created', 'New task created successfully!');
+      if ($this->task_model->edit_task($task_id, $data)) {
+        $this->session->set_flashdata('task_updated', 'New task updated successfully!');
         redirect('projects/index');
       }
     }

@@ -64,6 +64,7 @@ $route['create_new'] = 'projects/create';
 $route['delete_item/(:num)'] = 'projects/delete/$1';
 // $route['tasks'] = 'tasks/index';
 // $route['task_create'] = 'tasks/create/$this->uri->segment(3)';
+$route['tasks'] = 'tasks/index';
 
 
 

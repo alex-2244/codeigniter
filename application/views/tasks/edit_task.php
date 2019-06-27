@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<h4 class="card-title">Edit Tasks</h4>
 					</div>
 					<div class="card-body">
-						<?php echo form_open('tasks/update_task/' . $this->uri->segment(3)); ?>
+						<?php echo form_open('tasks/edit_task/' . $this->uri->segment(3)); ?>
 							<div class="form-group">
 								<label for="project_name">Task Name</label>
 								<input type="text" class="form-control" name="task_name" value="<?php echo $the_task->task_name; ?>">
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="date" class="form-control" name="due_date" value="<?php echo $the_task->due_date; ?>">
 							</div>
 							<div class="form-group">
-								<button class="btn btn-sm btn-primary" type="submit">Create</button>
+								<button class="btn btn-sm btn-primary" type="submit">Update</button>
 								<a class="btn btn-sm btn-success" href="<?php echo site_url('projects'); ?>">Back</a>
 							</div>
 						<?php echo form_close(); ?>

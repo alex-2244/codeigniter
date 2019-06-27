@@ -22,6 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <div class="navbar-nav">
 	      <a class="nav-item nav-link active" href="<?php echo site_url('welcome/home') ?>">Home</a>
 	      <a class="nav-item nav-link" href="<?php echo site_url('projects') ?>">Projects</a>
+	      <a class="nav-item nav-link" href="<?php echo site_url('tasks') ?>">Tasks</a>
 	      
 	    </div>
 	  </div>

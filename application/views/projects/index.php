@@ -62,6 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</button>
 		</div>
 	<?php endif; ?>
+
+
+	<?php if ($this->session->flashdata('task_updated')): ?>
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<?php echo $this->session->flashdata('task_updated') ?>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	<?php endif; ?>
+
 	<div class="container mt-4">
 		<div class="row">
 			<div class="col-lg-10">
