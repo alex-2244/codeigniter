@@ -5,13 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+	<!-- Material Design -->
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+ 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg">
 	  <a class="navbar-brand" href="#">Codeigniter</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -48,34 +56,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 			<div class="card-body">
 				<form action="<?php echo base_url('register'); ?>" method="POST">
-					<div class="row form-group">
-						<div class="col">
-							<label for="First Name">First Name</label>
-							<input type="text" name="first_name" class="form-control" placeholder="First Name" />
-						</div>
-						<div class="col">
-							<label for="Last Name">Last Name</label>
-							<input type="text" name="last_name" class="form-control" placeholder="Last Name" />
-						</div>
-						</div>
-						<div class="form-group">
-							<label for="Email">E-mail</label>
-							<input type="email" name="email" class="form-control" placeholder="E-mail" />
-						</div>
-						<div class="form-group">
-							<label for="Username">Username</label>
-							<input type="text" name="username" class="form-control" placeholder="Username" />
+						<div class="row">
+							<div class="col-6">
+								<div class="form-group">
+									<label for="First Name" class="bmd-label-floating">First Name</label>
+									<input type="text" name="first_name" class="form-control" />
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="form-group">
+									<label for="Last Name" class="bmd-label-floating">Last Name</label>
+									<input type="text" name="last_name" class="form-control" />
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
-							<label for="Password">Password</label>
-							<input type="password" name="password" class="form-control" placeholder="Password" />
+							<label for="Email" class="bmd-label-floating">E-mail</label>
+							<input type="email" name="email" class="form-control" />
 						</div>
 						<div class="form-group">
-							<label for="Confirm Password">Password</label>
-							<input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" />
+							<label for="Username" class="bmd-label-floating">Username</label>
+							<input type="text" name="username" class="form-control" />
 						</div>
 						<div class="form-group">
-							<button type="submit" class="btn btn-sm btn-primary">Register</button>&nbsp;
+							<label for="Password" class="bmd-label-floating">Password</label>
+							<input type="password" name="password" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label for="Confirm Password" class="bmd-label-floating">Password</label>
+							<input type="password" name="confirm_password" class="form-control" />
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-raised btn-primary">Register</button>&nbsp;
 							<span>
 								<a href="<?php echo site_url('login_view'); ?>">Login</a>
 							</span>

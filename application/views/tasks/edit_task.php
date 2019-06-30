@@ -5,15 +5,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Edit Tasks</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/all.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/all.min.css">
+
+	<!-- Material Design -->
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+ 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg">
 	  <a class="navbar-brand" href="#">Codeigniter</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -26,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </div>
 	   <span class="float-right">
 				<form action="<?php echo base_url('destroy'); ?>">
-					<button class="btn btn-sm btn-outline-primary" type="submit"><i class="fas fa-power-off"></i> Logout</button>
+					<button class="btn btn-raised btn-primary" type="submit"><i class="fas fa-power-off"></i> Logout</button>
 				</form>
 			</span>
 	</nav>
@@ -43,11 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="card-body">
 						<?php echo form_open('tasks/edit_task/' . $this->uri->segment(3)); ?>
 							<div class="form-group">
-								<label for="project_name">Task Name</label>
+								<label for="project_name" class="bmd-label-floating">Task Name</label>
 								<input type="text" class="form-control" name="task_name" value="<?php echo $the_task->task_name; ?>">
 							</div>
 							<div class="form-group">
-								<label for="project_body">Task Body</label>
+								<label for="project_body" class="bmd-label-floating">Task Body</label>
 								<textarea class="form-control" rows="5" name="task_body"><?php echo $the_task->task_body ?></textarea>
 							</div>
 							<div class="form-group">
@@ -55,8 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="date" class="form-control" name="due_date" value="<?php echo $the_task->due_date; ?>">
 							</div>
 							<div class="form-group">
-								<button class="btn btn-sm btn-primary" type="submit">Update</button>
-								<a class="btn btn-sm btn-success" href="<?php echo site_url('projects'); ?>">Back</a>
+								<button class="btn btn-raised btn-primary" type="submit">Update</button>
+								<a class="btn btn-raised btn-success" href="<?php echo site_url('projects'); ?>">Back</a>
 							</div>
 						<?php echo form_close(); ?>
 					</div>

@@ -5,15 +5,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/all.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/all.min.css">
+
+	<!-- Material Design -->
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
+
+ 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"></script>
+	<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"></script>
+	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg">
 	  <a class="navbar-brand" href="#">Codeigniter</a>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -22,14 +31,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	    <div class="navbar-nav">
 	      <a class="nav-item nav-link active" href="<?php echo site_url('welcome/home') ?>">Home</a>
 	      <a class="nav-item nav-link" href="<?php echo site_url('projects') ?>">Projects</a>
-	      <a class="nav-item nav-link" href="<?php echo site_url('tasks') ?>">Tasks</a>
+	      <!-- <a class="nav-item nav-link" href="<?php echo site_url('tasks') ?>">Tasks</a> -->
 	      
 	    </div>
 	  </div>
 	   <?php if($this->session->userdata('logged_in')): ?>
 	   	<span class="float-right">
 				<form action="<?php echo base_url('destroy'); ?>">
-					<button class="btn btn-sm btn-outline-primary" type="submit"><i class="fas fa-power-off"></i> Logout</button>
+					<button class="btn btn-raised btn-primary" type="submit"><i class="fas fa-power-off"></i> Logout</button>
 				</form>
 			</span>
 		<?php endif; ?>

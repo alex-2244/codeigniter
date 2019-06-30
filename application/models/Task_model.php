@@ -49,7 +49,7 @@
     public function get_project_name($project_id) {
       $this->db->where('id', $project_id);
       $query = $this->db->get('projects');
-      return $query->row()->project_name;
+      return $query->row();
     }
 
 

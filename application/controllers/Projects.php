@@ -3,6 +3,7 @@
 class Projects extends CI_Controller {
 
 
+
 	public function __construct() {
 		parent::__construct();
 
@@ -19,8 +20,38 @@ class Projects extends CI_Controller {
 
 
 	public function index() {
-		$project['projects'] = $this->project_model->get_projects();
-		$this->load->view('projects/index', $project);
+		$config = array();
+		$config['base_url']          = base_url() . 'projects';
+		$config['total_rows']        = $this->project_model->get_count();
+		$config['per_page']          = 5;
+		$config['uri_segment']       = 2;
+		// $config['attributes']['rel'] = TRUE;
+		$config['query_string_segment'] = 'offset';
+		$config['page_query_string'] = TRUE;
+
+		// $choice = $config['total_rows'] / $config['per_page'];
+  //   $config['num_links'] = round($choice);  
+
+		$this->pagination->initialize($config);
+
+		$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+		// if (isset($page)) {
+		// 	$page = ($page + 1) * $config['per_page'];
+		// } else {
+		// 	$page = 0;
+		// }
+
+		// $limit = array(
+		// 	$config['per_page'],
+		// 	($page - 1) * $config['per_page']
+		// );
+
+		$data['links'] = $this->pagination->create_links();
+
+		$data['projects'] = $this->project_model->get_projects($config['per_page'], $page);
+		
+		$this->load->view('projects/index', $data);
 	}
 
 
@@ -86,10 +117,13 @@ class Projects extends CI_Controller {
 
 
 
-	public function delete($project_id) {
+	public function delete() {
 		// $id = $_REQUEST['id'];
 		// print_r($project_id);
 		// exit();
+		$project_id = $this->input->post('checkbox');
+		print_r($project_id);
+		exit();
 		$this->session->set_flashdata('deleted', 'Deleted your data successfully');
 		$this->project_model->delete_this($project_id);
 		redirect('projects/index');
