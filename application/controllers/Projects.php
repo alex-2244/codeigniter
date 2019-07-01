@@ -7,6 +7,8 @@ class Projects extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
+		$this->load->library('pagination');
+
 		if (!$this->session->userdata('logged_in')) {
 			$this->session->set_flashdata('not_allowed', 'Sorry You are not allowed to access...Please login first ');
 			redirect('welcome/login_view');
@@ -21,13 +23,40 @@ class Projects extends CI_Controller {
 
 	public function index() {
 		$config = array();
-		$config['base_url']          = base_url() . 'projects';
-		$config['total_rows']        = $this->project_model->get_count();
-		$config['per_page']          = 5;
-		$config['uri_segment']       = 2;
+		$config['base_url'] = base_url() . 'projects';
+		$config['total_rows'] = $this->project_model->get_count();
+		$config['per_page'] = 5;
+		$config['uri_segment'] = 2;
+		$config['use_page_numbers'] = TRUE;
+
+		$config['full_tag_open'] = '<div class="pagination"><ul>';
+	  $config['full_tag_close'] = '</ul></div>';
+	 
+	  $config['first_link'] = '« First';
+	  $config['first_tag_open'] = '<li class="prev page">';
+	  $config['first_tag_close'] = '</li>';
+	 
+	  $config['last_link'] = 'Last »';
+	  $config['last_tag_open'] = '<li class="next page">';
+	  $config['last_tag_close'] = '</li>';
+	 
+	  $config['next_link'] = 'Next →';
+	  $config['next_tag_open'] = '<li class="next page">';
+	  $config['next_tag_close'] = '</li>';
+	 
+	  $config['prev_link'] = '← Previous';
+	  $config['prev_tag_open'] = '<li class="prev page">';
+	  $config['prev_tag_close'] = '</li>';
+	 
+	  $config['cur_tag_open'] = '<li class="active"><a href="">';
+	  $config['cur_tag_close'] = '</a></li>';
+	 
+	  $config['num_tag_open'] = '<li class="page">';
+	  $config['num_tag_close'] = '</li>';
+
 		// $config['attributes']['rel'] = TRUE;
-		$config['query_string_segment'] = 'offset';
-		$config['page_query_string'] = TRUE;
+		// $config['query_string_segment'] = 'offset';
+		// $config['page_query_string'] = TRUE;
 
 		// $choice = $config['total_rows'] / $config['per_page'];
   //   $config['num_links'] = round($choice);  
@@ -44,10 +73,10 @@ class Projects extends CI_Controller {
 
 		// $limit = array(
 		// 	$config['per_page'],
-		// 	($page - 1) * $config['per_page']
+		// 	($page - 1) * $config['per_page'] / 5
 		// );
 
-		$data['links'] = $this->pagination->create_links();
+		// $data['links'] = $this->pagination->create_links();
 
 		$data['projects'] = $this->project_model->get_projects($config['per_page'], $page);
 		
@@ -117,13 +146,13 @@ class Projects extends CI_Controller {
 
 
 
-	public function delete() {
+	public function delete($project_id) {
 		// $id = $_REQUEST['id'];
 		// print_r($project_id);
 		// exit();
-		$project_id = $this->input->post('checkbox');
-		print_r($project_id);
-		exit();
+		// $project_id = $this->input->post('checkbox');
+		// print_r($project_id);
+		// exit();
 		$this->session->set_flashdata('deleted', 'Deleted your data successfully');
 		$this->project_model->delete_this($project_id);
 		redirect('projects/index');

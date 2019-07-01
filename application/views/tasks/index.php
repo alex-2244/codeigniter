@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/fontawesome.min.css"> -->
   <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/fontawesome.js">
   <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/js/fontawesome.min.js"> -->
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/all.css">
-  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets1/css/all.min.css">
 
   <!-- Material Design -->
   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css">
@@ -39,7 +39,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      <?php if($this->session->userdata('logged_in')): ?>
       <span class="float-right">
         <form action="<?php echo base_url('destroy'); ?>">
-          <button class="btn btn-sm btn-outline-primary" type="submit"><i class="fas fa-power-off"></i> Logout</button>
+          <button class="btn btn-info btn-fab" title="Logout" type="submit">
+            <i class="material-icons">power_settings_new</i>
+          </button>
         </form>
       </span>
     <?php endif; ?>

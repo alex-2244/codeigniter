@@ -35,7 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	  </div>
 	   <span class="float-right">
 				<form action="<?php echo base_url('destroy'); ?>">
-					<button class="btn btn-raised btn-primary" type="submit"><i class="fas fa-power-off"></i> Logout</button>
+					<button class="btn btn-raised btn-info btn-fab" title="Logout" type="submit">
+					<i class="material-icons">power_settings_new</i></button>
 				</form>
 			</span>
 	</nav>
