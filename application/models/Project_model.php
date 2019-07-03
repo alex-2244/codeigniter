@@ -2,7 +2,7 @@
 
 class Project_model extends CI_Model {
 
-	protected $table = 'projects';
+	// protected $table = 'projects';
 
 
 	public function create_new($value) {
@@ -12,7 +12,7 @@ class Project_model extends CI_Model {
 
 
 	public function get_count() {
-		return $this->db->count_all($this->table);
+		return $this->db->count_all('projects');
 	}
 
 
@@ -21,7 +21,7 @@ class Project_model extends CI_Model {
 		// $this->db->from('projects');
 		// $this->db->join('tasks', 'tasks.project_id = projects.id');
 		$this->db->limit($limit, $start);
-		$query = $this->db->get($this->table);
+		$query = $this->db->get('projects');
 		return $query->result();
 	}
 

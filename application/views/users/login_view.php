@@ -1,178 +1,131 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
+?>
+
+
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8" />
-  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url(); ?>assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/img/favicon.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>
-    LoginPage
-  </title>
-  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
-  <!--     Fonts and icons     -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-  <!-- CSS Files -->
-  <link href="<?php echo base_url(); ?>assets/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="<?php echo base_url(); ?>assets/demo/demo.css" rel="stylesheet" />
-  <style>
-    #login-center {
-      max-width: 350px;
-      margin: 0px auto;
-      position: relative;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Login Page</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/iCheck/square/blue.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-absolute fixed-top ">
-    <div class="container-fluid">
-      <div class="navbar-wrapper">
-        <a class="navbar-brand" href="#pablo">Codeigniter</a>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
+<body class="hold-transition login-page">
+
+  <?php if($this->session->flashdata('success')): ?>
+    <div class="alert alert-success alert-dismissible show" role="alert">
+      <?php echo $this->session->flashdata('success'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end">
-        
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url('login_view'); ?>">
-              Login
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<?php echo site_url('register_view'); ?>">
-              Register
-            </a>
-          </li>
-        </ul>
-      </div>
     </div>
-  </nav>
+  <?php endif; ?>
 
-	<!-- =======================================================NAVBAR ENDS============================================================ -->
-	<?php if($this->session->flashdata('success')): ?>
-		<div class="alert alert-success alert-dismissible fade show" role="alert">
-			<?php echo $this->session->flashdata('success'); ?>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-	<?php endif; ?>
-
-	<?php if($this->session->flashdata('log_error')): ?>
-		<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			<?php echo $this->session->flashdata('log_error'); ?>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-	<?php endif; ?>
+  <?php if($this->session->flashdata('log_error')): ?>
+    <div class="alert alert-danger alert-dismissible show" role="alert">
+      <?php echo $this->session->flashdata('log_error'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <?php endif; ?>
 
 
-	<?php if($this->session->flashdata('log_required')): ?>
-		<div class="alert alert-danger alert-dismissible fade show" role="alert">
-			<?php echo $this->session->flashdata('log_required'); ?>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-	<?php endif; ?>
+  <?php if($this->session->flashdata('log_required')): ?>
+    <div class="alert alert-danger alert-dismissible show" role="alert">
+      <?php echo $this->session->flashdata('log_required'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <?php endif; ?>
 
-	<?php if($this->session->flashdata('not_allowed')): ?>
-		<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<?php echo $this->session->flashdata('not_allowed'); ?>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-		    <span aria-hidden="true">&times;</span>
-		  </button>
-		</div>
-	<?php endif; ?>
+  <?php if($this->session->flashdata('not_allowed')): ?>
+    <div class="alert alert-warning alert-dismissible show" role="alert">
+      <?php echo $this->session->flashdata('not_allowed'); ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <?php endif; ?>
 
+<div class="login-box">
+  <div class="login-logo">
+    <a href="#"><b>Admin</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <p class="login-box-msg">Log in</p>
 
-	<!-- Main Content -->
+    <form action="<?php echo site_url('login'); ?>" method="post">
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control" name="username" placeholder="Username">
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control" name="password" placeholder="Password">
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Log In</button>
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <!-- <a href="#">I forgot my password</a><br> -->
+    <p>Not have an account?
+      <a href="<?php echo site_url('register_view'); ?>" class="text-center">Register</a>
+    </p>
 
-	<div class="container" style="padding-top: 10%;">			
-		<div class="login-center" id="login-center">
-			<div class="card">
-				<div class="card-header pb-0">
-					<h4 class="card-title">Login Page</h4>
-				</div>
-				<div class="card-body">
-					<form action="<?php echo base_url('login'); ?>" method="POST">
-						<div class="form-group">
-							<label for="Username" class="bmd-label-floating">Username</label>
-							<input type="text" name="username" class="form-control" />
-						</div>
-						<div class="form-group">
-							<label for="Password" class="bmd-label-floating">Password</label>
-							<input type="password" name="password" class="form-control" />
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-block">Login</button>&nbsp;
-							<span>Not have account?
-								<a href="<?php echo site_url('register_view'); ?>" title="Register"> Register</a>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- End Main Body -->
+  </div>
+  <!-- /.login-box-body -->
+</div>
+<!-- /.login-box -->
 
-
-
-
-<!--   Core JS Files   -->
-  <script src="<?php echo base_url(); ?>assets/js/core/jquery.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/core/popper.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/core/bootstrap-material-design.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-  <!-- Plugin for the momentJs  -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/moment.min.js"></script>
-  <!--  Plugin for Sweet Alert -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/sweetalert2.js"></script>
-  <!-- Forms Validations Plugin -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/jquery.validate.min.js"></script>
-  <!-- Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/jquery.bootstrap-wizard.js"></script>
-  <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-selectpicker.js"></script>
-  <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
-  <!--  DataTables.net Plugin, full documentation here: https://datatables.net/  -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/jquery.dataTables.min.js"></script>
-  <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-tagsinput.js"></script>
-  <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/jasny-bootstrap.min.js"></script>
-  <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/fullcalendar.min.js"></script>
-  <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/jquery-jvectormap.js"></script>
-  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/nouislider.min.js"></script>
-  <!-- Include a polyfill for ES6 Promises (optional) for IE11, UC Browser and Android browser support SweetAlert -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
-  <!-- Library for adding dinamically elements -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/arrive.min.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/chartist.min.js"></script>
-  <!--  Notifications Plugin    -->
-  <script src="<?php echo base_url(); ?>assets/js/plugins/bootstrap-notify.js"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?php echo base_url(); ?>assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<?php echo base_url(); ?>assets/demo/demo.js"></script>
-  
-
+<!-- jQuery 3 -->
+<script src="<?php echo base_url(); ?>assets/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="<?php echo base_url(); ?>assets/plugins/iCheck/icheck.min.js"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' /* optional */
+    });
+  });
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
