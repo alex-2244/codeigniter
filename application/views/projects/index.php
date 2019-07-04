@@ -1,7 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html>
@@ -50,7 +46,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini">
+        <img src="<?php echo base_url(); ?>assets/images/logo.png" width="25" height="25">
+      </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
         <b>
@@ -271,17 +269,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <td><?= $project->project_name; ?></td>
                         <td><?= $project->project_body; ?></td>
                         <td class="text-center">
-                          <a href="<?php echo site_url('edit/'. $project->id); ?>" class="btn btn-sm btn-primary" title="Edit">
+                          <a href="<?php echo site_url('edit/'. $project->id); ?>" class="btn btn-sm btn-primary" data-toggle="tooltip" title data-original-title="Edit">
                           <i class="fa fa-edit"></i>
                         </a>
                         </td>
                         <td class="text-center">
-                          <a href="<?php echo site_url('delete_item/' . $project->id); ?>" class="btn btn-sm btn-danger" title="Delete">
+                          <a href="<?php echo site_url('delete_item/' . $project->id); ?>" class="btn btn-sm btn-danger" data-toggle="tooltip" title data-original-title="Delete">
                             <i class="fa fa-trash"></i>
                           </a>
                         </td>
                         <td class="text-center">
-                          <a href="<?php echo base_url(); ?>tasks/create_view/<?php echo $project->id; ?>" class="btn btn-sm btn-primary">New Tasks</a>
+                          <a href="<?php echo base_url(); ?>tasks/create_view/<?php echo $project->id; ?>" class="btn btn-sm btn-primary" data-toggle="tooltip" title data-original-title="Create New">New Tasks</a>
                         </td>
                       </tr>
                     <?php endforeach ?>

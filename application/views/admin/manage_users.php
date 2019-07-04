@@ -1,16 +1,10 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-
-
-
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Create Projects</title>
+  <title>Projects</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -58,9 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
         <b>
-          <?php if($this->session->userdata('username')): ?>
-            <?php echo $this->session->userdata('username'); ?>
-          <?php endif; ?>
+          Admin
         </b>
       </span>
     </a>
@@ -74,32 +66,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
+          <!-- <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
             </a>
-            
-          </li>
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-            </a>
-          </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-          <li class="dropdown tasks-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-flag-o"></i>
-            </a>
-          </li>
+          </li> -->
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="user-image" alt="Image">
               <span class="hidden-xs">
-                <?php if($this->session->userdata('username')): ?>
-                  <?php echo $this->session->userdata('username'); ?>
-                <?php endif; ?>
+                Admin
               </span>
             </a>
             <ul class="dropdown-menu">
@@ -108,22 +85,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img src="<?php echo base_url(); ?>assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Welcome&nbsp;<span>
+                  Welcome&nbsp;<!-- <span>
                     <?php if($this->session->userdata('username')): ?>
                       <?php echo $this->session->userdata('username'); ?>
                     <?php endif; ?>
-                  </span>
+                  </span> -->
                 </p>
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
+                <div class="pull-left">
+                    <a class="btn btn-sm btn-info" href="<?php echo base_url(); ?>admin/change_password/view">
+                      Change Password
+                    </a>
+                </div>
                 <div class="pull-right">
-                  <?php if($this->session->userdata('logged_in')): ?>
-                    <form action="<?php echo base_url('destroy'); ?>">
-                      <button class="btn btn-info" title="Logout" type="submit">
-                      <i class="fa fa-power"></i>Logout
-                      </button>
-                    </form>
+                  <?php if($this->session->userdata('adminId')): ?>
+                    <a class="btn btn-sm btn-info" href="<?php echo base_url(); ?>admin/login/logout">
+                    	Logout
+                    </a>
                   <?php endif; ?>
                 </div>
               </li>
@@ -148,14 +128,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="pull-left info">
           <p>
-            <?php if($this->session->userdata('username')): ?>
-              <?php echo $this->session->userdata('username'); ?>
-            <?php endif; ?>
+            Admin
           </p>
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <!-- <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
@@ -163,20 +141,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </button>
           </span>
         </div>
-      </form>
+      </form> -->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active">
-          <a href="<?php echo site_url('welcome/home'); ?>">
+          <a href="<?php echo base_url(); ?>admin/login/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="<?php echo site_url('projects'); ?>">
-            <i class="fa fa-files-o"></i>
-            <span>Projects</span>
+          <a href="<?php echo base_url(); ?>admin/Manage_Users">
+            <i class="fa fa-user"></i>
+            <span>Users</span>
           </a>
         </li>
       </ul>
@@ -190,22 +168,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Projects
+        Admin
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Projects</a></li>
-        <li class="active">Create</li>
+        <li>
+          <a href="<?php echo base_url(); ?>admin/login/dashboard">
+            <i class="fa fa-dashboard"></i> Admin</a></li>
+        <li class="active">Users</li>
       </ol>
     </section>
-    
-    <?php if ($this->session->flashdata('success')): ?>
-      <div class="alert alert-success alert-dismissible show" role="alert">
-        <?php echo $this->session->flashdata('success') ?>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-    <?php endif; ?>
 
     <!-- Main content -->
     <section class="content">
@@ -214,35 +185,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!-- Main row -->
       <div class="row">
         <!-- Left col -->
-        <section class="col-lg-7 connectedSortable">
-          <div class="box box-primary">
+        <section class="col-lg-9 connectedSortable">
+          <div class="box box-info">
             <div class="box-header">
-              <h3 class="box-title">Create New Projects</h3>
+              <h3 class="box-title">All Users</h3>
             </div>
-            <form action="<?php echo base_url('new_projects'); ?>" method="post">
-							<div class="box-body">
-								<div class="form-group">
-									<label for="project_name">Project Name</label>
-									<input type="text" class="form-control" name="project_name" value="">
-								</div>
-								<div class="form-group">
-									<label for="project_body">Project Body</label>
-									<textarea class="form-control" rows="5" name="project_body"></textarea>
-								</div>
-								<div class="form-group">
-									<button class="btn btn-sm btn-primary" type="submit">Create</button>
-									<a class="btn btn-sm btn-danger" href="<?php echo site_url('projects'); ?>">Back</a>
-								</div>
-							</div>
-						</form>
+            <div class="box-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Username</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php 
+                    if (count($userDetails)): 
+                    // $cnt = 1;
+                    foreach ($userDetails as $value):
+                    ?>
+                    <tr>
+                      <td><?php echo htmlentities($value->id); ?></td>
+                      <td><?php echo htmlentities($value->first_name); ?></td>
+                      <td><?php echo htmlentities($value->last_name); ?></td>
+                      <td><?php echo htmlentities($value->email); ?></td>
+                      <td><?php echo htmlentities($value->username); ?></td>
+                      <td>
+                        <a href="#" class="btn btn-sm btn-primary" data-toggle="tooltip" title data-original-title="Edit">
+                          <i class="fa fa-edit"></i></a>
+                      </td>
+                      <td>
+                        <a href="#" class="btn btn-sm btn-danger" data-toggle="tooltip" title data-original-title="Delete">
+                          <i class="fa fa-trash"></i></a>
+                      </td>
+                    </tr>
+                    <?php
+                    // $cnt++;
+                    endforeach;
+                    else: 
+                    ?>
+                      <tr>
+                        <td colspan="7">No records found</td>
+                      </tr>
+                    <?php endif; ?>
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </section>
         <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable">
-
-        </section>
-        <!-- right col -->
       </div>
       <!-- /.row (main row) -->
 
@@ -295,29 +294,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
+
+
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

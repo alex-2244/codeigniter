@@ -34,52 +34,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body class="hold-transition login-page">
 
-  <?php if($this->session->flashdata('success')): ?>
-    <div class="alert alert-success alert-dismissible show" role="alert">
-      <?php echo $this->session->flashdata('success'); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('log_error')): ?>
-    <div class="alert alert-danger alert-dismissible show" role="alert">
-      <?php echo $this->session->flashdata('log_error'); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <?php endif; ?>
-
-
-  <?php if($this->session->flashdata('log_required')): ?>
-    <div class="alert alert-danger alert-dismissible show" role="alert">
-      <?php echo $this->session->flashdata('log_required'); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <?php endif; ?>
-
-  <?php if($this->session->flashdata('not_allowed')): ?>
-    <div class="alert alert-warning alert-dismissible show" role="alert">
-      <?php echo $this->session->flashdata('not_allowed'); ?>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  <?php endif; ?>
+  <?php if ($this->session->flashdata('adlog_error')): ?>
+    <p style="color:red; font-size:18px;" align="center">
+      <?php echo $this->session->flashdata('adlog_error');?>
+    </p>
+  <?php endif; ?> 
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>User</b></a>
+    <a href="#"><b>Admin</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Log in</p>
+    <p class="login-box-msg">Admin Login</p>
 
-    <form action="<?php echo site_url('login'); ?>" method="post">
+    <form action="<?php echo base_url(); ?>admin/login/index" method="post">
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="username" placeholder="Username">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -96,12 +65,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </form>
     <!-- <a href="#">I forgot my password</a><br> -->
-    <p>Not have an account?
-      <a href="<?php echo site_url('register_view'); ?>" class="text-center">Register</a>
-    </p>
-
-     <p>
-      <a href="<?php echo base_url(); ?>admin/login/admin_login" class="text-center">Admin Login</a>
+    <p>Are you a user?
+      <a href="<?php echo site_url('login_view'); ?>" class="text-center">Login here</a>
     </p>
 
   </div>

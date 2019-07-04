@@ -59,6 +59,8 @@ class Projects extends CI_Controller {
 		$data['links'] = $this->pagination->create_links();
 
 		$data['projects'] = $this->project_model->get_projects($config['per_page'], $page);
+		// print_r($data);
+		// exit();
 		
 		$this->load->view('projects/index', $data);
 	}

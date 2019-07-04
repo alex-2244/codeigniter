@@ -49,7 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini">
+        <img src="<?php echo base_url(); ?>assets/images/logo.png" width="25" height="25">
+      </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
         <b>
@@ -216,8 +218,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <input type="hidden" name="id" value="<?php echo $projects->id; ?>">
                 <div class="form-group">
-                  <button class="btn btn-info" type="submit">Update</button>
-                  <a class="btn btn-success" href="<?php echo site_url('projects'); ?>">Back</a>
+                  <button class="btn btn-sm btn-info" type="submit">Update</button>
+                  <a class="btn btn-sm btn-success" href="<?php echo site_url('projects'); ?>">Back</a>
                 </div>
               </div>
             </form>

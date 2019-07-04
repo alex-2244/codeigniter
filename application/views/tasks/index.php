@@ -50,7 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini">
+        <img src="<?php echo base_url(); ?>assets/images/logo.png" width="25" height="25">
+      </span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">
         <b>

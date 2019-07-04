@@ -75,3 +75,7 @@ $route['destroy'] = 'users/logout';
 $route['new_projects'] = 'projects/create_new';
 $route['update'] = 'projects/update';
 $route['search_item'] = 'projects/search';
+
+
+//Admin
+// $route['adlogin'] = 'admin/login/index';

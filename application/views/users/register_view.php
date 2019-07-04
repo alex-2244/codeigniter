@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <?php endif; ?>
 <div class="register-box">
   <div class="register-logo">
-    <a href="../../index2.html"><b>New Member</b></a>
+    <a href="#"><b>New User</b></a>
   </div>
 
   <div class="register-box-body">
