@@ -21,14 +21,11 @@ class Login extends CI_Controller {
 			// print_r($validate);
 			// exit();
 			if ($validate) {
-
-
-
 				$this->session->set_userdata('adminId', $validate);
-				$this->load->view('admin/dashboard');
+				redirect('admin/Dashboard');
 			} else {
 				// $this->session->set_flashdata('ad_log', 'Something went wrong!');
-				redirect('admin/login/admin_login');
+				redirect('admin/Login/admin_login');
 			}
 			
 		}
@@ -50,7 +47,7 @@ class Login extends CI_Controller {
 	public function logout() {
 		$this->session->unset_userdata('adminId');
 		$this->session->sess_destroy();
-		redirect('admin/login/admin_login');
+		redirect('admin/Login/admin_login');
 	}
 
 

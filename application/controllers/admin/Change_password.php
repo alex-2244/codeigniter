@@ -22,9 +22,9 @@ Class Change_password extends CI_Controller {
 		// $newpass = $this->input->post('new_password');
 		// $adminid = $this->session->userdata('adminId');
 			
-			// echo "<pre>";
-			// print_r(array($cpassword, $newpass, $adminid)); 
-			// exit();
+		// echo "<pre>";
+		// print_r(array($cpassword, $newpass, $adminid)); 
+		// exit();
 
 		$this->form_validation->set_rules('current_password', 'Current Password', 'required');
 		$this->form_validation->set_rules('new_password', 'New Password', 'required');
@@ -43,10 +43,10 @@ Class Change_password extends CI_Controller {
 			// exit();
 			if ($dbpass == $cpassword) {
 				$changePassword = $this->Admin_Changepassword_Model->updatePassword($adminid, $newpass);
-					if ($changePassword == TRUE) {
-						$this->session->set_flashdata('new_pass', 'New password has been updated');
-						redirect('admin/change_password');
-					}
+				if ($changePassword == TRUE) {
+					$this->session->set_flashdata('new_pass', 'New password has been updated');
+					redirect('admin/change_password');
+				}
 			}
 
 

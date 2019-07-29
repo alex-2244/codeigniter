@@ -100,8 +100,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <a href="<?php echo site_url('register_view'); ?>" class="text-center">Register</a>
     </p>
 
-     <p>
-      <a href="<?php echo base_url(); ?>admin/login/admin_login" class="text-center">Admin Login</a>
+     <p>Admin login here?
+      <a href="<?php echo base_url(); ?>admin/login/admin_login" class="text-center">Login</a>
     </p>
 
   </div>

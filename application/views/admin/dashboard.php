@@ -147,7 +147,7 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active">
-          <a href="<?php echo base_url(); ?>admin/login/dashboard">
+          <a href="<?php echo base_url(); ?>admin/Login/dashboard">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
           </a>
         </li>
@@ -172,7 +172,7 @@
       </h1>
       <ol class="breadcrumb">
         <li>
-          <a href="<?php echo base_url(); ?>admin/login/dashboard">
+          <a href="<?php echo base_url(); ?>admin/Dashboard">
             <i class="fa fa-dashboard"></i> Admin</a></li>
         <li class="active">Dashboard</li>
       </ol>
@@ -188,10 +188,8 @@
         <section class="col-lg-4 connectedSortable">
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>0</h3>
-
+              <h3><?php echo $totalcount; ?></h3>
               <p>Total Users</p>
-              <p></p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -202,7 +200,7 @@
         <section class="col-lg-4 connectedSortable">
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>0</h3>
+              <h3><?php echo $beforeSevenDay; ?></h3>
 
               <p>Registered last 10days</p>
             </div>
@@ -215,9 +213,9 @@
         <section class="col-lg-4 connectedSortable">
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>0</h3>
+              <h3><?php echo $beforeThirtyDays; ?></h3>
 
-              <p>Registered last 10days</p>
+              <p>Registered last 30days</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
@@ -251,7 +249,7 @@
 <script src="<?php echo base_url(); ?>assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
 <script src="<?php echo base_url(); ?>assets/bower_components/raphael/raphael.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/bower_components/morris.js/morris.min.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/bower_components/morris.js/morris.min.js"></script> -->
 <!-- Sparkline -->
 <script src="<?php echo base_url(); ?>assets/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -273,7 +271,7 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script> -->
 <!-- AdminLTE for demo purposes -->
 <script src="<?php echo base_url(); ?>assets/dist/js/demo.js"></script>
 

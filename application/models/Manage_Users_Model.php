@@ -11,7 +11,7 @@ Class Manage_Users_Model extends CI_Model {
 
 
 	public function getAllUserDetails() {
-		$this->db->select('id, first_name, last_name, username, email');
+		$this->db->select('id, first_name, last_name, username, email, regdate');
 		$users = $this->db->get('users');
 		return $users->result();
 		// echo "<pre>";
